@@ -21,7 +21,7 @@ class _BacaanSholatState extends State<BacaanSholat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff0e1446),
+      backgroundColor: Color.fromARGB(255, 14, 20, 70),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -41,7 +41,7 @@ class _BacaanSholatState extends State<BacaanSholat> {
                     margin: EdgeInsets.only(top: 80),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: Color(0xff44aca0)),
+                        color: Color.fromRGBO(68, 172, 160, 1)),
                     height: 200,
                     width: MediaQuery.of(context).size.width,
                     child: Container(

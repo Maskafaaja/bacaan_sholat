@@ -11,107 +11,244 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  String waktu() {
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'Pagi';
+    }
+    if (hour < 17) {
+      return 'Siang';
+    }
+    return 'Malam';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                margin: EdgeInsets.all(10),
-                child: Expanded(
-                  child: InkWell(
-                    highlightColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => NiatSholat()));
-                    },
-                    child: Column(
-                      children: [
-                        Image(
-                          image: AssetImage("assets/images/ic_niat.png"),
-                          height: 100,
-                          width: 100,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          "Niat Sholat",
-                          style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold),
-                        ),
-                      ],
+      backgroundColor: Color.fromARGB(255, 14, 20, 70),
+      body: Container(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Container(
+                height: 200,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    color: Color.fromRGBO(68, 172, 160, 1),
+                    borderRadius: BorderRadius.circular(30)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(0),
+                      child: Text(
+                        "Selamat ${waktu()}",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
-              SizedBox(height: 40),
-              Container(
-                margin: EdgeInsets.all(10),
-                child: Expanded(
-                  child: InkWell(
-                    highlightColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => BacaanSholat()));
-                    },
-                    child: Column(
-                      children: [
-                        Image(
-                          image: AssetImage("assets/images/ic_doa.png"),
-                          height: 100,
-                          width: 100,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: SingleChildScrollView(
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.60,
+                  decoration: BoxDecoration(
+                      color: Color.fromRGBO(68, 172, 160, 1),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                          bottomLeft: Radius.circular(20),
+                          bottomRight: Radius.circular(20))),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  margin: EdgeInsets.all(10),
+                                  child: Expanded(
+                                    child: InkWell(
+                                      highlightColor: Colors.transparent,
+                                      splashColor: Colors.transparent,
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    NiatSholat()));
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Image(
+                                            image: AssetImage(
+                                                "assets/images/ic_niat.png"),
+                                            height: 100,
+                                            width: 100,
+                                          ),
+                                          SizedBox(height: 10),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Text("Niat Sholat",
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    )),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  margin: EdgeInsets.all(10),
+                                  child: Expanded(
+                                    child: InkWell(
+                                      highlightColor: Colors.transparent,
+                                      splashColor: Colors.transparent,
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    BacaanSholat()));
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Image(
+                                            image: AssetImage(
+                                                "assets/images/ic_doa.png"),
+                                            height: 100,
+                                            width: 100,
+                                          ),
+                                          SizedBox(height: 10),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "Bacaan Sholat",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        SizedBox(height: 10),
-                        Text(
-                          "Bacaan Sholat",
-                          style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  margin: EdgeInsets.all(10),
+                                  child: Expanded(
+                                    child: InkWell(
+                                      highlightColor: Colors.transparent,
+                                      splashColor: Colors.transparent,
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    AyatKursi()));
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Image(
+                                            image: AssetImage(
+                                                "assets/images/ic_bacaan.png"),
+                                            height: 100,
+                                            width: 100,
+                                          ),
+                                          SizedBox(height: 10),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "Ayat Kursi",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  margin: EdgeInsets.all(10),
+                                  child: Expanded(
+                                    child: InkWell(
+                                      highlightColor: Colors.transparent,
+                                      splashColor: Colors.transparent,
+                                      onTap: () {},
+                                      child: Column(
+                                        children: [
+                                          Image(
+                                            image: AssetImage(
+                                                "assets/images/about-us-icon-9.jpg"),
+                                            height: 100,
+                                            width: 100,
+                                          ),
+                                          SizedBox(height: 10),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "About",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
+                  // SizedBox(height: 40),
+                  // SizedBox(height: 40),
                 ),
               ),
-              SizedBox(height: 40),
-              Container(
-                margin: EdgeInsets.all(10),
-                child: Expanded(
-                  child: InkWell(
-                    highlightColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => AyatKursi()));
-                    },
-                    child: Column(
-                      children: [
-                        Image(
-                          image: AssetImage("assets/images/ic_bacaan.png"),
-                          height: 100,
-                          width: 100,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          "Ayat Kursi",
-                          style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
